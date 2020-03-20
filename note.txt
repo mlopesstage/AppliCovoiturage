@@ -1,0 +1,76 @@
+path/delete et user/delete verifier la trad du pop up {{'covoit.sur'|trans}}
+faire end bloc
+mettre le bouton de la page courant en plus foncé
+tri des tableaux
+bar de recherche
+afficher résa de l'uti
+permettre ma resa + décrement (si nb place = 0 alors impossible resa)
+si sup resa incrément place
+template
+finir et tester trad + url
+
+{{'sur'|trans}}Êtes vous sûr
+{{'avert'|trans}}Avertissement
+{{'btn.sav'|trans}}Enregistrer
+{{'btn.cancel'|trans}}Annuler
+{{'btn.edit'|trans}}Éditer
+{{'btn.sup'|trans}}Supprimer
+{{'btn.stop'|trans}}Terminé
+{{'btn.affich'|trans}}Afficher
+{{'btn.action'|trans}}Actions
+{{'btn.add'|trans}}Ajouter
+{{'btn.conect'|trans}}Se connecter
+{{'btn.logout'|trans}}Deconnexion
+{{'btn.ret'|trans}}Retour
+{{'btn.insc'|trans}}Inscription
+
+
+{{'menu.startAdm'|trans}}Offres de covoiturage (ADMIN)
+{{'menu.start'|trans}}Offres de covoiturage
+{{'menu.temp'|trans}}Template
+{{'menu.ville'|trans}}Ville
+{{'menu.covoit'|trans}}Covoiturage
+{{'menu.user'|trans}}Utilisteur
+{{'menu.addCovoit'|trans}}Ajouter Covoits
+{{'menu.listCovoit'|trans}}Liste Covoits
+{{'menu.myCovoit'|trans}}Mes annonces
+{{'menu.myInscr'|trans}}Mes inscriptions
+
+{{'covoit.intro'|trans}}Bienvenue sur ProjetDev, une application de gestion de covoiturage. Veuillez vous identifier pour procéder
+{{'covoit.gest'|trans}}Gestion des réservations de coivoiturage
+{{'covoit.create'|trans}}Création d'annonce d'un covoit
+{{'covoit.detail'|trans}}Détails du covoit N°
+{{'covoit.pourvoir'|trans}}à pourvoir
+{{'covoit.num'|trans}}Numéro covoit
+{{'covoit.start'|trans}}Lieu départ
+{{'covoit.end'|trans}}Lieu d'arrivé
+{{'covoit.heure'|trans}}Horraire
+{{'covoit.nbplace'|trans}}Nb places
+{{'covoit.price'|trans}}Prix
+{{'covoit.driver'|trans}}Conducteur
+{{'covoit.list'|trans}}Liste des covoits
+{{'covoit.prop'|trans}}Liste des vos propositions de covoiturage
+{{'covoit.notfound'|trans}}Pas de covoit trouvé
+{{'covoit.modif'|trans}}Modification d'annonce d'un covoit
+{{'covoit.avertSup'|trans}}Vous êtes en train de supprimer le covoit suivant
+
+{{'ville.detail'|trans}}Détails des villes
+{{'ville.id'|trans}}ID de la ville
+{{'ville.nom'|trans}}Nom
+{{'ville.list'|trans}}Liste des villes
+{{'ville.add'|trans}}Ajouter une ville
+{{'ville.notFound'|trans}}Pas de vile trouvé
+{{'ville.modif'|trans}}Modification d'une ville
+
+{{'user.thx'|trans}}Merci de vous connecter
+{{'user.mail'|trans}}E-mail
+{{'user.psw'|trans}}Mot de passe
+{{'user.create'|trans}}Crée un compte
+{{'user.id'|trans}}Id de l'utilisateur
+{{'user.nom'|trans}}Nom
+{{'user.prenom'|trans}}Prenom
+{{'user.id'|trans}}ID
+{{'user.notFound'|trans}}Pas d'utilisateur trouvé
+{{'user.supp'|trans}}Vous êtes en train de supprimer l'utilisateur suivant
+{{'user.num'|trans}}Numéro d'utilisateur
+{{'user.creation'|trans}}Création d'un utilisateur
