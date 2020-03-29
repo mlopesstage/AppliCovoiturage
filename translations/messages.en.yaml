@@ -1,0 +1,61 @@
+menu.startAdm: 'Carpool offers (ADMIN)'
+menu.start: 'Offers of carpools'
+menu.temp: Design
+menu.ville: City
+menu.covoit: Carpool
+menu.user: User
+menu.addCovoit: 'Add Carpool'
+menu.listCovoit: 'Carpools List'
+menu.myCovoit: 'My ads'
+menu.myInscr: 'My listings'
+btn.logout: 'Log out'
+covoit.gest: 'Management of carpool reservations'
+covoit.intro: 'Welcome to ProjetDev, a carpool management application. Please log in to proceed'
+btn.conect: 'Log in'
+btn.insc: Inscription
+covoit.create: 'Creation of a carpool announcement'
+btn.sav: Register
+btn.cancel: Cancel
+avert: Warning
+covoit.avertSup: 'You are deleting the following carpool'
+covoit.detail: 'Details of carpool N°'
+covoit.start: 'Place of departure'
+covoit.end: 'Place of arrival'
+covoit.heure: Schedule
+covoit.nbplace: 'Nb places'
+covoit.price: Price
+covoit.driver: Driver
+sur: 'Are you sure about this'
+btn.sup: Delete
+covoit.modif: 'Modification of a carpool announcement'
+btn.action: Action
+btn.affich: Display
+covoit.notfound: 'No carpool found'
+covoit.prop: 'List of your carpooling proposals'
+covoit.num: 'Carpool number'
+btn.edit: Edit
+btn.stop: Over
+covoit.pourvoir: 'to be filled'
+covoit.list: 'List of carpools'
+ville.add: 'Add a city'
+ville.modif: 'Modification of a city'
+btn.add: Add
+ville.nom: Name
+ville.notFound: 'No city found'
+ville.detail: 'Details of the cities'
+ville.id: 'ID of the city'
+ville.list: 'List of cities'
+user.thx: 'Please log'
+user.mail: E-mail
+user.psw: Password
+btn.ret: Return
+user.creation: 'Creating a User'
+user.supp: 'You are deleting the following user'
+user.num: 'User ID'
+user.nom: 'Last name'
+user.prenom: 'First name'
+user.create: 'Create an account'
+user.id: 'User ID'
+user.notFound: 'No user found'
+btn.lang: en
+menu.et: and

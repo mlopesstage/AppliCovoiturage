@@ -23,6 +23,7 @@ finir et tester trad + url
 {{'btn.logout'|trans}}Deconnexion
 {{'btn.ret'|trans}}Retour
 {{'btn.insc'|trans}}Inscription
+{{'btn.lang'|transs}}Langues
 
 
 {{'menu.startAdm'|trans}}Offres de covoiturage (ADMIN)

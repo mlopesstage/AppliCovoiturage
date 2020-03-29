@@ -1,0 +1,61 @@
+menu.startAdm: 'Offres de covoiturage (ADMIN)'
+menu.start: 'Offres de covoiturages'
+menu.temp: Design
+menu.ville: Ville
+menu.covoit: Covoiturage
+menu.user: Utilisateur
+menu.addCovoit: 'Ajouter Covoit'
+menu.listCovoit: 'Liste Covoits'
+menu.myCovoit: 'Mes annonces'
+menu.myInscr: 'Mes inscriptions'
+btn.logout: 'Se déconnecter'
+covoit.gest: 'Gestion des réservations de covoiturage'
+covoit.intro: 'Bienvenue sur ProjetDev, une application de gestion de covoiturage. Veuillez vous identifier pour procéder'
+btn.conect: 'Se connecter'
+btn.insc: Inscription
+covoit.create: 'Création d''annonce d''un covoit'
+btn.sav: Enregistrer
+btn.cancel: Annuler
+avert: Avertissement
+covoit.avertSup: 'Vous êtes en train de supprimer le covoit suivant'
+covoit.detail: 'Détails du covoit N°'
+covoit.start: 'Lieu de départ'
+covoit.end: 'Lieu d''arrivé'
+covoit.heure: Horaire
+covoit.nbplace: 'Nb places'
+covoit.price: Prix
+covoit.driver: Conducteur
+sur: 'Êtes vous sûr'
+btn.sup: Supprimer
+covoit.modif: 'Modification d''annonce d''un covoit'
+btn.action: Actions
+btn.affich: Afficher
+covoit.notfound: 'Pas de covoit trouvé'
+covoit.prop: 'Liste des vos propositions de covoiturage'
+covoit.num: 'Numéro covoit'
+btn.edit: Éditer
+btn.stop: Terminé
+covoit.pourvoir: 'à pourvoir'
+covoit.list: 'Liste des covoits'
+ville.add: 'Ajouter une ville'
+ville.modif: 'Modification d''une ville'
+btn.add: Ajouter
+ville.nom: Nom
+ville.notFound: 'Pas de ville trouvé'
+ville.detail: 'Détails des villes'
+ville.id: 'ID de la ville'
+ville.list: 'Liste des villes'
+user.thx: 'Merci de vous connecter'
+user.mail: E-mail
+user.psw: 'Mot de passe'
+btn.ret: Retour
+user.creation: 'Création d''un utilisateur'
+user.supp: 'Vous êtes en train de supprimer l''utilisateur suivant'
+user.num: 'Numéro d''utilisateur'
+user.nom: Nom
+user.prenom: Prenom
+user.create: 'Créer un compte'
+user.id: 'ID de l''utilisateur'
+user.notFound: 'Pas d''utilisateur trouvé'
+btn.lang: fr
+menu.et: et
