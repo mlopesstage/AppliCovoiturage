@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{'covoit.prop'|trans}}:</h1>
+
+    <table class="table text-center">
+        <tr>
+            <th class="active text-center">{{'covoit.num'|trans}}</th>
+            <th class="active text-center">{{'covoit.start'|trans}}</th>
+            <th class="active text-center">{{'covoit.end'|trans}}</th>
+            <th class="active text-center">{{'covoit.heure'|trans}}</th>
+            <th class="active text-center">{{'covoit.nbplace'|trans}}</th>
+            <th class="active text-center">{{'covoit.price'|trans}}</th>
+            <th class="active text-center">{{'covoit.driver'|trans}}</th>
+            <th class="active text-center">{{'btn.action'|trans}}</th>
+        </tr>
+
+        {% for path in paths %}
+            <tr>
+                {% if app.user.id == path.getDriver.getId %}
+                    <td>{{ path.getID }}</td>
+                    <td>{{ path.getDeparture.name }}</td>
+                    <td>{{ path.getDestination.name }}</td>
+                    <td>{{ path.getDateTime|date("d-m-Y H:i:s") }}</td>
+                    <td>{{ path.getSeats }}</td>
+                    <td>{{ path.getPrice }}</td>
+                    <td>{{ path.getDriver.firstname }}</td>
+                    <td>
+                    {% if "now"|date("Y-m-d H:i:s") < path.getDateTime|date("Y-m-d H:i:s") %}
+                        	<a class="btn btn-primary" href="{{ path('path.edit',{id: path.getID}) }}">
+                                {{'btn.edit'|trans}}
+                            </a>
+                            <a class="btn btn-danger" href="{{ path('path.delete',{id: path.getID}) }}">
+                                {{'btn.sup'|trans}}
+                            </a>
+                    {% else %}
+                        <a class="text-danger">{{'btn.stop'|trans}}</a>
+                    {% endif %}
+                        <a class="btn btn-info" href="{{ path('path.show',{id: path.getID}) }}">
+                            {{'btn.affich'|trans}}
+                        </a>
+                    </td>
+                {% endif %}
+            </tr>
+        {% else %}
+            <li><em>{{'covoit.notfound'|trans}}</em></li>
+        {% endfor %}
+    </table>
+{% endblock %}

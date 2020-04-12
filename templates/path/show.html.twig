@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{'covoit.detail'|trans}}<i>{{ path.getID }}</i> {{'covoit.pourvoir'|trans}} :</h1>
+
+    <table class="table text-center">
+        <tr>
+            <th class="active text-center">{{'covoit.num'|trans}}</th>
+            <th class="active text-center">{{'covoit.start'|trans}}</th>
+            <th class="active text-center">{{'covoit.end'|trans}}</th>
+            <th class="active text-center">{{'covoit.heure'|trans}}</th>
+            <th class="active text-center">{{'covoit.nbplace'|trans}}</th>
+            <th class="active text-center">{{'covoit.price'|trans}}</th>
+            <th class="active text-center">{{'covoit.driver'|trans}}</th>
+            <th class="active text-center">{{'btn.action'|trans}}</th>
+        </tr>
+
+        <tr>
+            <td>{{ path.getID }}</td>
+            <td>{{ path.getDeparture.name }}</td>
+            <td>{{ path.getDestination.name }}</td>
+            <td>{{ path.getDateTime|date("d-m-Y H:i:s") }}</td>
+            <td>{{ path.getSeats }}</td>
+            <td>{{ path.getPrice }}</td>
+            <td>{{ path.getDriver.firstname }}</td>
+            <td>
+                {% if "now"|date("Y-m-d H:i:s") < path.getDateTime|date("Y-m-d H:i:s") %}
+    	            {% if (is_granted('ROLE_ADMIN') or app.user.id == path.getDriver.getId) %}
+    		            <a class="btn btn-primary" href="{{ path('path.edit',{id: path.getID}) }}">
+    		            	{{'btn.edit'|trans}}
+    		            </a>
+    		       	{% endif %}
+
+                    {% if (is_granted('ROLE_ADMIN') == false and app.user.id != path.getDriver.getId and app.user not in passengers) %}
+    	                    <a class="btn btn-success" href="{{ path('path.addPath',{id: path.getID}) }}">
+    	                        {{'btn.resa'|trans}}
+    	                    </a>
+                    {% endif %}
+                {% else %}
+                    <a class="text-danger">{{'btn.stop'|trans}}</a>
+                {% endif %}
+	        </td>
+        </tr>
+    </table>
+
+    <div class="row">
+        <div class="col-sm-12 text-right">
+            <a class="btn btn-info" href="{{ path('path.list') }}">
+                {{'covoit.list'|trans}}
+            </a>
+        </div>
+    </div>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success">{{'btn.comment'|trans}}</button>
+        </div>
+    </div>
+    {{ form_end(form) }}
+    {% for comment in comments %}
+        {% if comment.ride.id == path.id %}
+			<div class="card text-white bg-dark mb-3" style="max-width: 40rem;">
+				<div class="card-header">
+			  		{{'comment.for'|trans}} {{ comment.author.firstName }} {{'comment.the'|trans}} {{ comment.getDateComment|date("d-m-Y H:i:s") }}
+					<div class=pull-right>
+                        {% if app.user.id == comment.author.id %}
+    		                <a class="btn btn-warning" href="{{ path('comment.edit',{id: comment.getId}) }}">
+    		                    {{'btn.edit'|trans}}</button>
+    		                </a>
+                        {% endif %}
+
+                        {% if app.user.id == comment.author.id or (is_granted('ROLE_ADMIN') or app.user.id == path.getDriver.getId) %}
+    		                <a href="{{ path('comment.delete',{id: comment.getId}) }}">
+    		                    <button type="submit" class="btn btn-danger" onclick="return confirm('{{'sur'|trans}} ?')">
+    		                        {{'btn.sup'|trans}}
+    		                    </button>
+    		                </a>
+                         {% endif %}
+		            </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ comment.TextComment }}</p>
+                    </div>
+				</div>
+			</div>
+		{% endif %}
+	{%endfor%}
+{% endblock %}

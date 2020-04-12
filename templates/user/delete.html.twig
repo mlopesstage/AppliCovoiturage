@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="alert alert-danger">
+        <strong>{{'avert'|trans}} !</strong> {{'user.supp'|trans}} :
+        <ul>
+            <li><strong>{{'user.num'|trans}} : </strong> {{ user.getID }}</li>
+            <li><strong>{{'user.nom'|trans}} : </strong>{{ user.getLastname }}</li>
+            <li><strong>{{'user.prenom'|trans}} : </strong>{{ user.getFirstname }}</li>
+            <li><strong>{{'user.mail'|trans}} : </strong>{{ user.getEmail }}</li>
+        </ul>
+    </div>
+
+    {{ form_start(form, {'attr': {'class': 'navbar-form navbar-left'}}) }}
+    {{ form_widget(form) }}
+        <a href="{{ path('user.list') }}" class="btn btn-success" role="button">
+            {{'btn.cancel'|trans}}
+        </a>
+        <button type="submit" class="btn btn-danger" onclick="return confirm('{{'sur'|trans}} ?')">
+            {{'btn.sup'|trans}}
+        </button>
+    {{ form_end(form) }}
+{% endblock %}

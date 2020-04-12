@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{'ville.detail'|trans}} :</h1>
+
+    <table class="table text-center">
+        <tr>
+            <th class="active text-center">{{'ville.id'|trans}}</th>
+            <th class="active text-center">{{'ville.nom'|trans}}</th>
+        </tr>
+
+        <tr>
+            <td>{{ place.getID }}</td>
+            <td>{{ place.name }}</td>
+        </tr>
+    </table>
+
+
+    <div class="row">
+        <div class="col-sm-12 text-right">
+            <a class="btn btn-default" href="{{ path('place.list') }}">
+                {{'ville.list'|trans}}
+            </a>
+
+            <a class="btn btn-primary" href="{{ path('place.edit',{id: place.getID}) }}">
+                {{'btn.edit'|trans}}
+            </a>
+        </div>
+    </div>
+{% endblock %}

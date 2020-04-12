@@ -1,0 +1,19 @@
+{% extends 'default.html.twig' %}
+
+{% block body %}
+    <h1>{{'user.creation'|trans}} :</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success">{{'btn.sav'|trans}}</button>
+
+            <a class="btn btn-warning" href="{{ path('homepage') }}">
+                {{'btn.cancel'|trans}}
+            </a>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

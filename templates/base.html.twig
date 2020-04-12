@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{{'covoit.gest'|trans}}{% endblock %}</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    {% block stylesheets %}{% endblock %}
+
+    {% block javascripts %}{% endblock %}
+
+
+    {% if (app.user.theme == 'white') %}
+    	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/sketchy/bootstrap.min.css" 
+		rel="stylesheet" 
+		crossorigin="anonymous">
+	{% else %}
+     	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/darkly/bootstrap.min.css" 
+		rel="stylesheet" 
+		integrity="sha384-p8bH4RlA/kdF4wbAoep+/6VeOQI2IAWa9zLjTIQbQLv2FuCjX/W/FkdYdeKISDvK" 
+		crossorigin="anonymous">
+	{% endif %}
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+	{% if is_granted('ROLE_ADMIN') %}
+        <a class="navbar-brand" href="{{ path('path.list') }}">{{'menu.startAdm'|trans}}</a>
+	{% else %}
+        <a class="navbar-brand" href="{{ path('path.list') }}">{{'menu.start'|trans}}</a>
+	{% endif %}
+		<a class="navbar-brand" href="{{ path('path.list') }}">: {{ app.user.firstName }} {{ app.user.lastName }}</a>
+
+	<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    	<span class="navbar-toggler-icon"></span>
+	</button>
+	
+	<div class="navbar-collapse collapse" id="navbarColor01" style="">
+        <div class="navbar-nav ml-auto">
+            <ul class="nav navbar-nav navbar-right">
+            	<li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true"><span class="fa fa-paint-brush" aria-hidden="true"></span> {{'menu.temp'|trans}}</a>
+                    <div class="dropdown-menu" style=" ">
+                    	<a class="dropdown-item" href="{{ path('user.theme.white', {id: app.user.getId}) }}"> {{'btn.coloWhite'|trans}}</a>
+                    	<a class="dropdown-item" href="{{ path('user.theme.black', {id: app.user.getId}) }}"> {{'btn.coloBlack'|trans}}</a>
+                    </div>
+				</li>
+
+				<li class="nav-item dropdown">
+                	<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true"><span class="fa fa-globe" aria-hidden="true"></span> {{'btn.lang'|trans}}</a>
+                	<div class="dropdown-menu" style=" ">
+                		{% for key,locale in locales %}
+                			<a class="dropdown-item" href="{{ path(app.request.get('_route'),
+								app.request.attributes.get('_route_params')|merge({'_locale': key})) }}">{{locale}}</a>
+                		{% endfor %}
+                	</div>
+                </li>
+
+				{% if is_granted('ROLE_ADMIN') %}
+					<li class="nav-item">
+	                    <a href="{{ path('place.list') }}" class="nav-link"><span class="fa fa-home" aria-hidden="true"></span> {{'menu.ville'|trans}}</a>
+	                </li>
+	                <li class="nav-item">
+						<a href="{{ path('path.list') }}" class="nav-link"><span class="fa fa-road" aria-hidden="true"></span> {{'menu.covoit'|trans}}</a>
+					</li>
+					<li class="nav-item">
+	                    <a href="{{ path('user.list') }}" class="nav-link"><span class="fa fa-user" aria-hidden="true"></span> {{'menu.user'|trans}}</a>
+	                </li>
+                {% else %}
+	                <li class="nav-item">
+	                    <a href="{{ path('path.create') }}" class="nav-link"><span class="fa fa-car" aria-hidden="true"></span> {{'menu.addCovoit'|trans}}</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a href="{{ path('path.list') }}" class="nav-link"><span class="fa fa-road" aria-hidden="true"></span> {{'menu.listCovoit'|trans}}</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a href="{{ path('path.listUserPath') }}" class="nav-link"><span class="fa fa-list" aria-hidden="true"></span> {{'menu.myCovoit'|trans}}</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a href="{{ path('path.listReservations') }}" class="nav-link"><span class="fa fa-edit" aria-hidden="true"></span> {{'menu.myInscr'|trans}}</a>
+	                </li>
+                {% endif %}
+            	<li class="nav-item">
+					<a href="{{ path('app_logout') }}" class="btn btn-danger"><span class="fa fa-power-off" aria-hidden="true"></span> {{'btn.logout'|trans}}</a>
+				</li>
+			</ul>
+
+        </div>
+
+    </div>
+    </br>
+</nav>
+    
+<div class="container">
+    {% block body %}{% endblock %}
+</div>
+
+</br></br></br>
+
+<!-- Footer -->
+<footer class="page-footer fixed-bottom">
+	<!-- Copyright -->
+	<div class="footer-copyright text-center py-3">© 2020 Copyright:
+		<a> Garic Luca {{'menu.et'|trans}} Lopes Michaël</a>
+	</div>
+	<!-- Copyright -->
+</footer>
+<!-- Footer -->
+</body>
+</html>

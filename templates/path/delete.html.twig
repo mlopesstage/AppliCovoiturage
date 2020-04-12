@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="alert alert-danger">
+        <strong>{{'avert'|trans}} !</strong> {{'covoit.avertSup'|trans}} :
+        <ul>
+            <li><strong>{{'covoit.detail'|trans}} : </strong> {{ path.getID }}</li>
+            <li><strong>{{'covoit.start'|trans}} : </strong>{{ path.getDeparture.name }}</li>
+            <li><strong>{{'covoit.end'|trans}} : </strong>{{ path.getDestination.name }}</li>
+            <li><strong>{{'covoit.heure'|trans}} : </strong>{{ path.getDateTime|date("d-m-Y H:i:s") }}</li>
+            <li><strong>{{'covoit.nbplace'|trans}} : </strong>{{ path.getSeats }}</li>
+            <li><strong>{{'covoit.price'|trans}} : </strong>{{ path.getPrice }}</li>
+            <li><strong>{{'covoit.driver'|trans}} : </strong>{{ path.getDriver.firstname }} {{ path.getDriver.lastname }}</li>
+        </ul>
+    </div>
+    {{ form_start(form, {'attr': {'class': 'navbar-form navbar-left'}}) }}
+    {{ form_widget(form) }}
+        <a href="{{ path('path.list') }}" class="btn btn-success" role="button">{{'btn.cancel'|trans}}</a>
+        <button type="submit" class="btn btn-danger" onclick="return confirm('{{'sur'|trans}} ?')">{{'btn.sup'|trans}}</a>
+    </button>
+    {{ form_end(form) }}
+{% endblock %}

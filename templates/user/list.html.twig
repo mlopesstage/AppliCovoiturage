@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <input class="form-control" id="myInput" type="text" placeholder="{{'btn.search'|trans}}">
+    <br>
+    <table border-spacing: 5px;>{{'user.create'|trans}} :
+        <a href="{{ path('user.createAdmin') }}" class="btn btn-success">{{'btn.add'|trans}}</a>
+    </table>
+    <br>
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th class="active text-center">{{'user.id'|trans}}</th>
+                <th class="active text-center">{{'user.nom'|trans}}</th>
+                <th class="active text-center">{{'user.prenom'|trans}}</th>
+                <th class="active text-center">{{'user.mail'|trans}}</th>
+                <th class="active text-center">{{'btn.action'|trans}}</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.getID }}</td>
+                    <td>{{ user.firstname }}</td>
+                    <td>{{ user.lastname }}</td>
+                    <td>{{ user.email }}</td>
+                    <td><a class="btn btn-danger" href="{{ path('user.delete',{id: user.getID}) }}">
+                        {{'btn.sup'|trans}}
+                    </a></td>
+                </tr>
+            {% else %}
+                <li><em>{{'user.notFound'|trans}}</em></li>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+    </script>
+{% endblock %}
